@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+	<managed-bean>
+		<managed-bean-name>userBean</managed-bean-name>
+		<managed-bean-class>com.login.UserBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>adminController</managed-bean-name>
+		<managed-bean-class>Admin.AdminController</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>registerForm</managed-bean-name>
+		<managed-bean-class>com.login.RegisterForm</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>stockApiBean</managed-bean-name>
+		<managed-bean-class>stockapi.StockApiBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	
+	<navigation-rule>
+		<from-view-id>index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>userRole</from-outcome>
+			<if>#{userBean.validateUser} and #{userBean.role = user}</if>
+			<to-view-id>userhome.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>userRole</from-outcome>
+			<if>#{managerBean.validateManager} and #{userBean.role = manager}</if>
+			<to-view-id>managerhome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+</faces-config>

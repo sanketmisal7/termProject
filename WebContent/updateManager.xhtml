@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>    <h:head>
+        <title>Register</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+        <link href="styles.css"></link>
+    </h:head>
+    <h:body>
+   
+        <h:form  id="RegisterForm" class="form-register">
+       <h>UPDATE MANAGER PROFILE</h>
+
+
+				<br></br><h:outputLabel for="fName">First Name</h:outputLabel>  
+               <h:inputText id="fName" class="form-control" value="#{sessionScope.updatedUser.fname}" required="true" requiredMessage="First Name is required" />
+               <h:message for="fName" style="color:red" /><br/>  
+               <h:outputLabel for="lName">Last Name</h:outputLabel>
+               <h:inputText id="lName" class="form-control" value="#{sessionScope.updatedUser.lname}" required="true" requiredMessage="Last Name is required" />
+               <h:message for="lName" style="color:red" /><br/>  
+               <h:outputLabel for="Address">Address</h:outputLabel>  
+               <h:inputText id="Address" class="form-control" value="#{sessionScope.updatedUser.address}" required="true" requiredMessage="Address is required" />
+               <h:message for="Address" style="color:red" /><br/>  
+               <h:outputLabel for="PhNo">Phone Number</h:outputLabel>  
+               <h:inputText id="PhNo" class="form-control" value="#{sessionScope.updatedUser.pnumber}" required="true" requiredMessage="Phone Number is required" />
+               <h:message for="PhNo" style="color:red" /><br/>  
+               <h:outputLabel for="Email">Email</h:outputLabel>
+               <h:inputText id="Email" class="form-control" value="#{sessionScope.updatedUser.email}" required="true" requiredMessage="Email is required" />
+               <h:message for="Email" style="color:red" /><br/>  
+               <h:outputLabel for="username">User Name</h:outputLabel>  
+               <h:inputText id="username" class="form-control" value="#{sessionScope.updatedUser.username}" required="true" requiredMessage="User Name is required" />
+               <h:message for="username" style="color:red" /><br/>  
+               <h:outputLabel for="password">Password</h:outputLabel>
+               <h:inputSecret id="password" class="form-control" value="#{sessionScope.updatedUser.password}" required="true" requiredMessage="Password is required" />
+               <h:message for="password" style="color:red" /><br/>  
+               <h:commandButton  class="btn btn-success btn-block"  value="Update" action="#{registerForm.update}"/>
+       			  <tr>
+                    <td><h:outputLink value="managerhome.xhtml">Back to Home</h:outputLink></td>
+                </tr>
+       			
+        </h:form>
+     </h:body>
+</html>
+
